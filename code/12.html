@@ -1,0 +1,32 @@
+<html ng-app="MyApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+	<script src="../js/modernizr-svg.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+		var myApp = angular.module('MyApp', []);
+		myApp.controller('CountryCtrl',function($scope){
+			$scope.country = {name : "Australlia",shortName:"aus"};
+		}); 
+      	myApp.directive("svgSrc", function() {
+			return {
+				restrict: 'A',  // 'A' 'E' C' 'AEC'
+				link: function(scope, element, attr) { 
+					var fallBack = attr.fallBack || 'png';
+					var isSvgSupported = Modernizr.svg;
+					var newImgSrcVal = attr.svgSrc + "." + (isSvgSupported ? 'svg' : fallBack); 
+					element.attr('src', newImgSrcVal);
+				},
+				replace: false
+			};
+		})
+
+    </script>
+  </head>
+  <body ng-controller="CountryCtrl">
+	<h3>{{country.name}}</h3>
+	<br>
+	<img style="width:500px;height;500px;" svg-src="../img/{{country.shortName}}" fall-back="png">
+  </body>
+</html>

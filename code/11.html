@@ -1,0 +1,43 @@
+<html ng-app="MyApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+	<script src="../js/modernizr-svg.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      var myApp = angular.module('MyApp', []);
+      myApp.controller('CountryCtrl', function ($scope){
+        $scope.countryList = [
+			{ name : "Australlia", shortName : 'aus'},			
+			{ name : "Argentina", shortName : 'arg'},
+			{ name : "England", shortName : 'eng'},
+			{ name : "USA", shortName : 'usa'}
+		];
+      });
+	  myApp.directive("svgSrc", function() {
+			return {
+				restrict: 'A', 
+				link: function(scope, element, attr) { 
+					var fallBack = attr.fallBack || 'png';
+					var isSvgSupported = Modernizr.svg;
+					var newImgSrcVal = attr.svgSrc + "." + (isSvgSupported ? 'svg' : fallBack); 
+					element.attr('src', newImgSrcVal);
+				},
+				replace: false
+			};
+		});
+    </script>
+  </head>
+  <body ng-controller="CountryCtrl">
+	<br> 
+	Select Country : 
+	<select ng-model="selectedCountry" ng-options="country.name for country in countryList">
+      <option value="">-- choose person --</option>
+    </select> 
+	<br><br>
+	Selected Country Name: {{selectedCountry.name}} 
+	<br><br> 
+	Flag : <br><br> 
+	<img style="width:500px;height;500px;" svg-src="../img/{{selectedCountry.shortName}}" fall-back="png">
+    </body>
+</html>

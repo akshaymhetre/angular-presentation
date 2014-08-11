@@ -1,0 +1,27 @@
+<html ng-app="MyApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+    <script>
+      var myApp = angular.module('MyApp', []);
+      myApp.controller('NameCtrl', function ($scope){
+        $scope.names = [
+		{name : 'Akshay', phNo : '9822000334', addr : "Pune"},
+		{name : 'Arun', phNo : '7822000334', addr : "Kolkata"},
+		{name : 'Ranjit', phNo : '8822000334', addr : "Nanded"},
+		{name : 'Nakul', phNo : '5822000334', addr : "Nanded"},
+		{name : 'Navneet', phNo : '6822000334', addr : "Wassepur"}
+		];
+	  });
+    </script>
+  </head>
+  <body ng-controller="NameCtrl">
+	Kwanzoo Team <br/><br/>
+	Search on location :<input ng-model="queryObj.addr" type="text"/><br /><br/>
+	Name -- Address -- PhoneNumber
+    <ul>
+      <li ng-repeat="item in names | filter:queryObj">{{item.name}} -- {{item.addr}} -- {{item.phNo}} </li>
+    </ul>
+  </body>
+</html>

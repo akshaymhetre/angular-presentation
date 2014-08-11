@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>AngularJS - Introduction</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Angular JS</h1>
+					<h3>Introduction</h3>
+					<p>
+						<small>By Akshay Mhetre</small>
+					</p>
+				</section>
+				<section>
+					<h2>Trends</h2>
+				</section>
+				<section>
+					<h3>Google Trends</h3>
+					<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=angularjs,+ember.js,+knockoutjs,+backbonejs,+node.js&date=today+12-m&cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=620&h=430"></script>					
+				</section> 			
+				<!-- <section>
+					<h3>Indeed Job Trends</h3>
+					<div style="width:540px">
+						<a href="http://www.indeed.com/jobtrends?q=backbone+js%2C+angular+js%2C+knockout+js%2C+ember+js&relative=1&relative=1" title="backbone js, angular js, knockout js, ember js Job Trends">
+						<img width="540" height="300" src="http://www.indeed.com/trendgraph/jobgraph.png?q=backbone+js%2C+angular+js%2C+knockout+js%2C+ember+js&relative=1" border="0" alt="backbone js, angular js, knockout js, ember js Job Trends graph">
+						</a>
+						<table width="100%" cellpadding="6" cellspacing="0" border="0" style="font-size:80%"><tr>
+						<td><a href="http://www.indeed.com/jobtrends?q=backbone+js%2C+angular+js%2C+knockout+js%2C+ember+js&relative=1&relative=1">backbone js, angular js, knockout js, ember js Job Trends</a></td>
+						<td align="right"><a href="http://www.indeed.com/jobs?q=Backbone+Js">Backbone Js jobs</a> - <a href="http://www.indeed.com/jobs?q=Angular+Js">Angular Js jobs</a> - <a href="http://www.indeed.com/jobs?q=Knockout+Js">Knockout Js jobs</a> - <a href="http://www.indeed.com/jobs?q=Ember+Js">Ember Js jobs</a></td>
+						</tr></table>
+					</div>
+				</section>-->
+				<section>
+					<h2>Why Angular ?</h2>
+				</section>
+				<section>
+					<h2>What is Angular ?</h2>
+				</section>
+				<section>
+					<h3>Intro</h3><br>
+					<ul>
+						<li>A javascript MVC / MVVM / MVW framework</li><br>
+						<li>Devloped by Google</li><br>
+						<li>Two way data binding</li><br>
+						<li>Extends HTML vocabulary</li><br>
+					</ul>
+				</section>
+				<section>
+					<h2>One way data binding with JQuery</h2>
+				</section>
+				<section>
+					<iframe src="/code/1.html" width="500px"></iframe>
+					<pre><code data-trim contenteditable>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;JQuery Example&lt;/title&gt;
+    &lt;script src=&quot;//code.jquery.com/jquery-2.0.3.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;					
+	Name:<input id="textInput" type="text"/>
+	Hello <span id="nameDiv"></span>!
+
+	<script>
+	  $('#textInput').on('keyup', function(){
+             $('#nameDiv').html($('#textInput').val());
+	  });
+	</script>
+  &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<img src="https://docs.angularjs.org/img/One_Way_Data_Binding.png" /> 
+				</section>
+				<section>
+					<h2>Data binding with Angular</h2>
+				</section>	
+								<section>
+					<iframe src="/code/2.html" width="500px"></iframe>
+					<pre><code data-trim >
+&lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Angular.js Example&lt;/title&gt;
+    &lt;script 
+	src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Name:&lt;input ng-model=&quot;username&quot; type=&quot;text&quot;/&gt;
+    Welcome {{username}}
+  &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<iframe src="/code/3.html" width="500px"></iframe>
+					<pre><code data-trim >
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Angular.js Example&lt;/title&gt;
+    &lt;script 
+	src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div ng-app&gt;
+    First Name:&lt;input ng-model=&quot;firstName&quot; type=&quot;text&quot;/&gt;
+	Last Name:&lt;input ng-model=&quot;lastName&quot; type=&quot;text&quot;/&gt;
+    Welcome {{firstName}} {{lastName}}
+  &lt;/div&gt;
+  I am not part of this : {{firstName}} {{lastName}}
+  &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<h2>Controllers & Two way Data binding</h2>
+				</section>
+				<section>
+					<iframe src="/code/4.html" width="500px"></iframe>
+					<pre><code data-trim height="500px">
+&lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Angular.js Example&lt;/title&gt;
+    &lt;script 
+	src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js&quot;&gt;
+	&lt;/script&gt;
+	&lt;script&gt;
+      function NameCtrl($scope){
+        $scope.firstName = 'Akshay';
+        $scope.lastName = 'Mhetre';
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body ng-controller="NameCtrl"&gt;
+    First name:<input ng-model="firstName" type="text"/>
+    <br>
+    Last name:<input ng-model="lastName" type="text"/>
+    <br><br>
+    Hello {{firstName}} {{lastName}}
+  &lt;/body&gt;  
+&lt;/html&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<img src="//docs.angularjs.org/img/Two_Way_Data_Binding.png"/>
+				</section>
+				<section>
+					<iframe src="/code/5.html" width="500px"></iframe>
+					<pre><code data-trim height="500px">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Angular.js Example&lt;/title&gt;
+    &lt;script 
+	src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js&quot;&gt;
+	&lt;/script&gt;
+	&lt;script&gt;
+         var myApp = angular.module('MyApp', []);
+      myApp.controller('NameCtrl', function ($scope){
+        $scope.firstName = 'Akshay';
+        $scope.lastName = 'Mhetre';
+      });
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp" ng-controller="NameCtrl"&gt;
+    First name:<input ng-model="firstName" type="text"/>
+    <br>
+    Last name:<input ng-model="lastName" type="text"/>
+    <br><br>
+    Hello {{firstName}} {{lastName}}
+  &lt;/body&gt;  
+&lt;/html&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<h2>Directives</h2>
+				</section>
+				<section>
+					<h3>Directive : ng-repeat</h3>
+					<iframe src="/code/6.html" width="540px"></iframe>
+					<pre><code data-trim height="500px">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Angular.js Example&lt;/title&gt;
+    &lt;script 
+	src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js&quot;&gt;
+	&lt;/script&gt;
+	&lt;script&gt;
+      var myApp = angular.module('MyApp', []);
+      myApp.controller('NameCtrl', function ($scope){
+        $scope.names = ['Akshay', 'Arun', 'Navneet','Nakul','Ranjit'];
+      });      
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp" ng-controller="NameCtrl"&gt;
+    Kwanzoo Team
+    <ul>
+      <li ng-repeat="name in names">{{name}}</li>
+    </ul>
+  &lt;/body&gt;  
+&lt;/html&gt;
+					</code></pre>					
+				</section>				
+				<section>
+					<section>
+						<h3>Directive : ng-src</h3>
+						<iframe src="/code/7.html" width="500px" height="500px;"></iframe>
+					</section>
+					<section>
+					<h3>ng-src Code</h3>
+					<pre><code data-trim height="500px">
+&lt;html ng-app=&quot;MyApp&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Angular.js Example&lt;/title&gt;
+    &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      var myApp = angular.module('MyApp', []);
+      myApp.controller('NameCtrl', function ($scope){
+        $scope.persons = [
+              { name :&quot;Nakul&quot;, pic_id : 'Nakul_Shinde'},			
+              { name :&quot;Arun&quot;, pic_id : 'Arun_Pal'},
+              { name :&quot;Ranjit&quot;, pic_id : 'Ranjit_Shinde'},
+              { name :&quot;Navneet&quot;, pic_id : 'Navneet_Pandey'}
+		];
+      });
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body ng-controller=&quot;NameCtrl&quot;&gt;
+	Kwanzoo Team Member : 
+    &lt;select ng-model=&quot;selectedPerson&quot; ng-options=&quot;person.name for person in persons&quot;&gt;
+      &lt;option value=&quot;&quot;&gt;-- choose person --&lt;/option&gt;
+    &lt;/select&gt; 
+	&lt;br&gt;
+	Selected Person : {{selectedPerson.name}} 
+	
+	Profile picture :
+    &lt;img ng-src=&quot;//intranet.gslab.com/photos/tn/{{selectedPerson.pic_id}}.JPG&quot;/&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>	
+					</section>	
+				</section>
+				<section>
+					<h2>Your own directives</h2>
+				</section>
+				<section>
+					<h3>SVG vs other image types</h3><br>
+					<ul>
+						<li>Vector logic in XML format</li>
+						<li>Retains image quality on resized or zoomed</li>
+						<li>Relatively small in size</li>
+						<li style="color:red;">Not supported in some browsers</li>
+					</ul>	
+					<br/><br/>
+					<div>
+						PNG
+						<a target="_blank" href="img/aus.png"><img style="width:100px;height:100px;" src="img/aus.png"></a>&nbsp;&nbsp;&nbsp;
+						SVG
+						<a target="_blank" href="img/aus.svg"><img style="width:100px;height:100px;" src="img/aus.svg"></a>
+					</div>
+				</section>
+				<section>
+					<h3>My Directive</h3><br>
+					<pre><code data-trim height="500px">
+<img svg-src="img/aus" fall-back="png">					
+					</code></pre>	
+					<iframe src="/code/12.html" width="700px" height="500px;"></iframe>
+				</section>		
+					<section>					
+						<pre><code data-trim height="500px">
+
+&lt;script&gt;
+var myApp = angular.module('MyApp', []);
+myApp.directive("svgSrc", function() {
+    return {
+        restrict: 'A',  // 'A' 'E' C' 'AEC'
+        link: function(scope, element, attr) { 
+            var fallBack = attr.fallBack || 'png';
+            var isSvgSupported = Modernizr.svg;
+            var newImgSrcVal = 
+                attr.svgSrc + "." + (isSvgSupported ? 'svg' : fallBack); 
+            element.attr('src', newImgSrcVal);
+        },
+        replace: false
+    };
+});
+&lt;/script&gt;
+<img svg-src="img/aus" fall-back="png">				
+						</code></pre>					
+					</section>			
+				<section>
+					<h2>Filters</h2>
+				</section>
+				<section>
+					<h3>Filter : serach</h3><br>
+					<iframe src="/code/8.html" width="700px" height="500px;"></iframe>
+				</section>
+				<section>
+					<h3>Filter : smart serach</h3><br>
+					<iframe src="/code/9.html" width="700px" height="500px;"></iframe>
+				</section>
+				<section>
+					<h3>Features</h3><br>
+					<ul>
+						<li>Your Own Dirctives & Filters</li><br>
+						<li>Good support for testing frameworks : <br>Mocha, Jasmine, Karma, ...</li><br>
+						<li>Can use other javascripts libraries</li><br>
+						<li>Angular UI, Mobile angular UI</li>
+					</ul>
+				</section>	
+				<section>
+					<h1>Thanks</h1>					
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
